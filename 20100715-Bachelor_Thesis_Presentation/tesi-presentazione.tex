@@ -1,0 +1,50 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer} %per eliminare un warning
+
+\usepackage[utf8x]{inputenc}
+\usepackage{default}
+\usepackage[italian]{babel}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{eso-pic}
+
+
+\hypersetup{pdfsubject={Synthesis of conjugated polymers and quantum dots for photovoltaics applications},pdfkeywords={polythiophene, CdSe, ligand, surface, interfaces, bulk heterojunction, phosphonic acid ligand, Sonogashira, nanocrystals, excitons, photovoltaics, solar cells, ligand exchange, pyridine, poly(3-hexylthiophene), regioregular, GRIM, asymmetric termination},pdftitle={Presentazione della tesi di laurea triennale di Ilario Gelmetti}}
+
+\usetheme{Warsaw}        % layout complessivo. 
+\useinnertheme{default} % layout interno.
+\useoutertheme{default} % layout esterno.
+\usecolortheme{wolverine} % schema di colori.
+\usefonttheme{default}  % schema dei font.
+
+ \AtBeginSection[]{\frame{ \tableofcontents[current,hideothersubsections]}} %indice all'inizio di ogni sezione
+\let\Tiny=\tiny % per eliminare un warning
+\newcommand{\diapo}[1]{\subsection{#1}\begin{frame}\frametitle{#1}}
+
+\title{Sintesi controllata di quantum dots stabilizzati \\da polimeri coniugati funzionalizzati \\per applicazioni fotoelettroniche.}
+\author{Ilario Gelmetti}
+\institute{Università di Pisa}
+\date{15 luglio 2010}
+\logo{\includegraphics[width=0.1\paperwidth]{../tex/Immagini_Tesi/logo_unipi/unilogo_small.jpg}}
+
+\begin{document}
+\begin{frame}
+  \titlepage
+\end{frame}
+\title{Sintesi di quantum dots stabilizzati da polimeri coniugati}
+
+
+\begin{frame}
+\setcounter{tocdepth}{1}
+\tableofcontents
+\end{frame}
+\setcounter{tocdepth}{2}
+
+
+\input{sections/fotovoltaico.tex}
+\input{sections/materiali.tex}
+\input{sections/sistemacompleto.tex}
+\input{sections/sintesi.tex}
+\input{sections/conclusioni.tex}
+
+
+\end{document}

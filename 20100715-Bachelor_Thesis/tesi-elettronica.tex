@@ -1,0 +1,184 @@
+%
+% Se cercate il PDF, potete compilarlo partendo da questo file .tex oppure potete scaricarlo da qui:
+% http://etd.adm.unipi.it/theses/available/etd-06152011-145149/ 
+%
+
+\documentclass[a4paper, italian, oneside
+, 12pt
+]{book}
+\usepackage[italian]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[Lenny]{fncychap}%Conny,Sonny,Bjarne,Rejne,Glenn,Lenny
+\usepackage{eso-pic}
+\usepackage{graphicx}%permette di includere immagini .EPS (ma se uso pdflatex non funge), ho tolto l'opzione dvips perché dava problemi col posizionamento del logo unipi
+\usepackage{amsmath}%per simboli matematici spaciali come \xrightarrow
+\usepackage{amsfonts}%per caratteri spaciali come \mathbb
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
+\usepackage[bf, hang]{subfigure}
+\usepackage[bf, hang]{caption}
+\usepackage{color}
+\usepackage{wrapfig}
+
+\usepackage{chemstyle}
+\usepackage[pdftex,pdfsubject={Synthesis of conjugated polymers and quantum dots for photovoltaics applications},pdfkeywords={polythiophene, CdSe, ligand, surface, interfaces, bulk heterojunction, phosphonic acid ligand, Sonogashira, nanocrystals, excitons, photovoltaics, solar cells, ligand exchange, pyridine, poly(3-hexylthiophene), regioregular, GRIM, asymmetric termination},pdftitle={Tesi di laurea triennale di Ilario Gelmetti},colorlinks=true,linkcolor=blue,citecolor=blue]{hyperref} %%metainformazioni
+%%%Didascalie
+
+\setlength{\captionmargin}{.10\textwidth}
+
+\newcommand\AlCentroPagina[1]{
+\AddToShipoutPicture*{\AtPageCenter{
+\makebox(0,0){\includegraphics
+[width=0.9\paperwidth]{#1}}}}}
+
+\setlength{\headheight}{27pt} %se uso 12pt per il corpo testo, fancyhdr me lo chiede
+
+\newcommand{\footnoteremember}[2]{\footnote{#2}\newcounter{#1}\setcounter{#1}{\value{footnote}}}
+\newcommand{\footnoterecall}[1]{\footnotemark[\value{#1}]} %questo serve per potersi riferire più di una volta alla stessa footnote
+\newcommand{\n}[1]{({\bf #1})}
+
+\title{Sintesi controllata di quantum dots stabilizzati da polimeri coniugati funzionalizzati per applicazioni fotoelettroniche.}
+\author{Gelmetti Ilario}
+\date{}% Remove command to get current date 
+%\institute{Scuola Normale Superiore di Pisa}
+
+\begin{document}
+
+
+\frontmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Prima Pagina %%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AddToShipoutPicture*{\AtPageCenter{\makebox(0,0){\includegraphics[width=0.9\paperwidth]{Immagini_Tesi/logo_unipi/unilogo_big-sbiadito-indicizz.png}}}}
+\begin{titlepage}
+
+\begingroup	%aggiunto per non avere il warning ``destination with the same identifier (name{page.i}) has been already used, duplicate ignored''
+  \renewcommand{\thepage}{title}%aggiunto per non avere il warning ``destination with the same identifier (name{page.i}) has been already used, duplicate ignored''
+
+
+\begin{center}
+	\makebox[\textwidth]{\centering{\includegraphics[width=.4\textwidth]{Immagini_Tesi/logo_unipi/unilogo.pdf}}}\\%  	
+   	\large{\textsc{Facoltà di Scienze Matematiche Fisiche e Naturali}}\\
+   	\large{{Dipartimento di Chimica e Chimica Industriale}}\\
+		\rule{5cm}{1pt}\\
+			\makebox[\textwidth]{\rule{0pt}{.22\textheight}}\\
+	\LARGE{\textsc{Sintesi controllata di quantum dots stabilizzati da polimeri coniugati funzionalizzati per applicazioni fotoelettroniche.}}\\
+	\bigskip
+	\large{Tesi di laurea di primo livello.}\\	
+		\makebox[.2\textwidth]{\rule{0pt}{.1\textheight}}\\
+\end{center}
+
+\vfill
+\begin{small}
+\makebox[\textwidth]{\rule{0pt}{.02\textheight}}\\
+	\begin{center}
+	\rule{3cm}{1pt}\\
+	\LARGE{Ilario Gelmetti}\\		
+	%Codice Archivio Tesi
+	\end{center}
+\end{small}
+
+  \newpage%aggiunto per non avere il warning ``destination with the same identifier (name{page.i}) has been already used, duplicate ignored''
+ \endgroup%aggiunto per non avere il warning ``destination with the same identifier (name{page.i}) has been already used, duplicate ignored''
+
+\end{titlepage}
+
+
+
+
+\pagestyle{empty}
+\cleardoublepage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Seconda Pagina %%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AddToShipoutPicture*{\AtPageCenter{\makebox(0,0){\includegraphics[width=0.9\paperwidth]{Immagini_Tesi/logo_unipi/unilogo_big-sbiadito-indicizz.png}}}}
+\begin{titlepage}\begin{center}
+	\makebox[\textwidth]{\centering{\includegraphics[width=.4\textwidth]{Immagini_Tesi/logo_unipi/unilogo.pdf}}}\\%  	
+   	\large{\textsc{Facoltà di Scienze Matematiche Fisiche e Naturali}}\\
+		\rule{5cm}{1pt}\\
+	{\small{Laurea triennale in \textsc{Chimica}}}\\
+	{\small{Curriculum \textsc{Molecolare}}}\\
+		\makebox[\textwidth]{\rule{0pt}{.06\textheight}}\\
+	\LARGE{\textsc{Sintesi controllata di quantum dots stabilizzati da polimeri coniugati funzionalizzati per applicazioni fotoelettroniche.}}\\
+		\makebox[\textwidth]{\rule{0pt}{.03\textheight}}\\
+	\footnotesize{Candidato:}\\
+	\large{Ilario Gelmetti}\\
+		\makebox[.2\textwidth]{\rule{0pt}{.02\textheight}}\\
+\end{center}
+\begin{small}
+\makebox{\parbox[b]{.8\textwidth}{
+	\flushleft{\textbf{Relatore:}}
+		\flushright{\begin{tabular}{l c}
+		Prof. Valter Castelvetro&\makebox[.4\textwidth]{\dotfill}\\
+		\end{tabular}}
+
+	\flushleft{\textbf{Controrelatore:}}
+		\flushright{\begin{tabular}{l c}
+		 Prof. Marcella Venturini &\makebox[.4\textwidth]{\dotfill}\\
+		\end{tabular}}
+
+	\flushleft{\textbf{Candidato:}}
+		\flushright{\begin{tabular}{l c}
+		Ilario Gelmetti &\makebox[.4\textwidth]{\dotfill}\\
+		\end{tabular}}
+}}
+\bigskip
+\makebox[\textwidth]{\rule{0pt}{.01\textheight}}\\
+	\begin{center}
+	\rule{3cm}{1pt}\\
+	Sessione di laurea 15/06/2010\\
+	Anno accademico 2009-2010\\
+	%Codice Archivio Tesi
+	\end{center}
+\end{small}
+\end{titlepage}
+\newpage \vspace*{8cm}
+\pdfbookmark[0]{Dedica}{dedica} % Sets a PDF bookmark for the dedication
+\begin{center}
+\large {\it Dedicata a Luciano, mio padre.}
+\end{center} 
+
+\chapter*{Ringraziamenti}
+\pdfbookmark[0]{Ringraziamenti}{ringraziamenti} % Sets a PDF bookmark for the acknowledements
+Thanks to Amit Kumar Tevtia for the patience.
+\\
+Grazie a molte persone per l'incoraggiamento.
+
+
+\pagestyle{empty}
+\cleardoublepage
+%\addtolength{\hoffset}{-23pt} %lasciare solo in stampato
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%% Setting up pagestyles for ``fancy'' (two sides)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\addtolength{\headwidth}{0.7cm}
+
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1\ \thesection}}
+\lhead[\fancyplain{}{\textbf{\footnotesize{\leftmark}}}]{}
+\chead{}
+\rhead[]{\fancyplain{}{\textbf{\footnotesize{\rightmark}}}}
+\rfoot[\footnotesize{\slshape \footnotesize{15/06/2010}}]{\thepage}
+\cfoot[\footnotesize{Tesi di laurea di primo livello}]{\footnotesize Sintesi per il fotovoltaico ibrido.}
+\lfoot[\thepage]{\footnotesize{\slshape Gelmetti Ilario}}
+
+%%%%%%%%%%%%%%%%%%%%%%% Indice %%%%%%%%%%%%%%%%%%%%%%%%%
+
+\tableofcontents
+\mainmatter
+%%%%%%%%%%%%%%%%%%%%%% Capitolo 1 %%%%%%%%%%%%%%%%%%%%%%
+\input{Capitoli_Tesi/tesi_intro}
+\input{Capitoli_Tesi/tesi_scopo}
+%%%%%%%%%%%%%%%%%%%%%% Capitolo 2 %%%%%%%%%%%%%%%%%%%%%%
+\input{Capitoli_Tesi/tesi_lavoro}
+%%%%%%%%%%%%%%%%%%%%%% Capitolo 3 %%%%%%%%%%%%%%%%%%%%%%
+\input{Capitoli_Tesi/tesi_risultati}
+\input{Capitoli_Tesi/tesi_conclusioni}
+%%%%%%%%%%%%%%%%%%%%%% Capitolo 4 %%%%%%%%%%%%%%%%%%%%%%
+\input{Capitoli_Tesi/tesi_sperimentale}
+%%%%%%%%%%%%%%%%%%%% Bibliografia %%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{unsrt}
+\bibliography{tesi.bib}
+\end{document}
